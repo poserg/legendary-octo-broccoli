@@ -4,7 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <listener>
+
+    <context-param>
+        <param-name>liquibase.changelog</param-name>
+        <param-value>liquibase/changelogs/changelog.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>liquibase.datasource</param-name>
+        <!-- ссылка на настроенный датасурс -->
+        <param-value>java:comp/env/jdbc/liquibase</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>liquibase.onerror.fail</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <listener>
     <listener-class>liquibase.integration.servlet.LiquibaseServletListener</listener-class>
   </listener>
 </web-app>
