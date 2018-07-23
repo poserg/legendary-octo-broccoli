@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.poserg.liquibase-servlet-listener-example</groupId>
+    <artifactId>db-update</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <artifactId>liquibase-servlet-listener-example</artifactId>
+        <groupId>com.github.poserg</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.build.targetEncoding>${encoding}</project.build.targetEncoding>
+        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+        <datasourceConfig.fileName>datasource.properties</datasourceConfig.fileName>
+        <datasourceConfig.targetDirectory>${basedir}/src/main/resources/liquibase</datasourceConfig.targetDirectory>
+        <sqljdbc.version>4.0</sqljdbc.version>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+        </plugins>
+    </build>
+</project>
