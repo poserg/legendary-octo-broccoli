@@ -23,6 +23,13 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>${sqljdbc.version}</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/sqljdbc4.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -33,6 +40,19 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.3</version>
+                <configuration>
+                    <propertyFile>
+                        ${basedir}/src/main/resources/liquibase/datasource.properties
+                    </propertyFile>
+                    <changeLogFile>src/main/resources/liquibase/changelogs/changelog.xml</changeLogFile>
+                    <changelogSchemaName>liquibase</changelogSchemaName>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
